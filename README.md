@@ -74,34 +74,7 @@ $ **lxc profile edit jitsiprf**
 
 Make it look like below...
 
-<blockquote>
-
-config:
-  user.network-config: |
-    version: 2
-    ethernets:
-        eth0:
-            addresses:
-            - 192.168.1.200/32
-            nameservers:
-                addresses:
-                - 8.8.8.8
-                search: []
-            routes:
-            -   to: 0.0.0.0/0
-                via: 169.254.0.1
-                on-link: true
-description: Default LXD profile
-devices:
-  eth0:
-    ipv4.address: 192.168.1.200
-    nictype: routed
-    parent: enp6s0
-    type: nic
-name: routed_192.168.1.200
-used_by:
-
-</blockquote>
+https://github.com/bmullan/Guide-to-Install-Jitsi-in-LXD-container/blob/master/routed%20profile.png
 
 Save your changed "**jitsiprf**" profile file.
 
