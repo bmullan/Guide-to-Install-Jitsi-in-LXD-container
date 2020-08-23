@@ -1,4 +1,5 @@
-# Guide to install Jitsi Video Conferencing System into an LXD container
+# Guide to install Jitsi Video Conferencing System   
+# into an LXD container
 
 ***Jitsi is a great Open Source Video Conferencing system you can self-host*** and works well on linux.
 
