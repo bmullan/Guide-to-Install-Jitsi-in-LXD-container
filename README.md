@@ -68,15 +68,40 @@ $ **lxc copy default jitsiprf**
 
 ### STEP 2
 
-Edit the new jitsiprf profile.
+Edit the new *jitsiprf* profile.
 
 $ **lxc profile edit jitsiprf**
 
 Make it look like below...
 
+<blockquote>
 
-*** < TBD - I'll insert this as soon as I can figure out how to keep formatting >***
+config:
+  user.network-config: |
+    version: 2
+    ethernets:
+        eth0:
+            addresses:
+            - 192.168.1.200/32
+            nameservers:
+                addresses:
+                - 8.8.8.8
+                search: []
+            routes:
+            -   to: 0.0.0.0/0
+                via: 169.254.0.1
+                on-link: true
+description: Default LXD profile
+devices:
+  eth0:
+    ipv4.address: 192.168.1.200
+    nictype: routed
+    parent: enp6s0
+    type: nic
+name: routed_192.168.1.200
+used_by:
 
+</blockquote>
 
 Save your changed "**jitsiprf**" profile file.
 
