@@ -44,117 +44,37 @@ If you've never looked at or edited an LXD Profile the first thing I'd do is cre
 
 You can call it whatever you want.
 
-    $ **lxc profile copy default default.copy**
+$ **lxc profile copy default default.copy**
 
 Next you should set your default linux text editor in your Host to what you like to use. It defaults to VI but if you use "nano" for instance:
 
-    $ **export EDITOR=nano**
+$ **export EDITOR=nano**
 
-    To make the change ti nano permanent, run the following once:
+To make the change ti nano permanent, run the following once:
 
-    $ **echo 'export EDITOR=nano' >> ~/.profile**
+$ **echo 'export EDITOR=nano' >> ~/.profile**
 
-    $ **source ~/.profile**
+$ **source ~/.profile**
 
-STEP 1
+
+### STEP 1
 
 Create a new LXD profile to use with Jitsi by copying LXD's "default" profile.
 
 I'll call my new profile "jitsiprf"
 
-    $ **lxc copy default jitsiprf**
+$ **lxc copy default jitsiprf**
 
-STEP 2
+### STEP 2
 
 Edit the new jitsiprf profile.
 
-    $ **lxc profile edit jitsiprf**
-
+$ **lxc profile edit jitsiprf**
 
 Make it look like below...
 
 
-    \### This is a YAML representation of the profile.
-
-    \### Any line starting with a '# will be ignored.
-
-    \###
-
-    \### A profile consists of a set of configuration items followed by a set of
-
-    \### devices.
-
-    \###
-
-    \### An example would look like:
-
-    \### name: onenic
-
-    \### config:
-
-    \### raw.lxc: lxc.aa_profile=unconfined
-
-    \### devices:
-
-    \### eth0:
-
-    \### nictype: bridged
-
-    \### parent: lxdbr0
-
-    \### type: nic
-
-    \###
-
-    \### Note that the name is shown but cannot be changed
-
-    config:
-
-    user.network-config: |
-
-    version: 2
-
-    ethernets:
-
-    eth0:
-
-    addresses:
-
-    - 192.168.1.200/32### change 192.168.1.200 to a reserved 192.168.x.x addr on your lan
-
-    nameservers:
-
-    addresses:
-
-    - 8.8.8.8
-
-    search: []
-
-    routes:
-
-    - to: 0.0.0.0/0
-
-    via: 169.254.0.1
-
-    on-link: true
-
-    description: Default LXD profile
-
-    devices:
-
-    eth0:
-
-    ipv4.address: 192.168.1.200### change 192.168.1.200 to a reserved 192.168.x.x addr on your lan
-
-    nictype: routed
-
-    parent: enp6s0 ### change "enp6s0" to Host's Internet interface eth or wifi
-
-    type: nic
-
-    name: jitsiprf
-
-    used_by:
+*** < TBD - I'll insert this as soon as I can figure out how to keep formatting >***
 
 
 Save your changed "**jitsiprf**" profile file.
@@ -163,19 +83,19 @@ Save your changed "**jitsiprf**" profile file.
 
 Create a new LXD Container to run your Jitsi in but add your new "jitsiprf" profile to be included during its creation
 
-    $ **lxc launch ubuntu:20.04 jitsi --profile default --profile jitsiprf**
+$ **lxc launch ubuntu:20.04 jitsi --profile default --profile jitsiprf**
 
 When its done you can check that your new "jitsi" container has the IP address you assigned in the "jitsiprf". For the
 
 example above the jitsi container should show 192.168.1.200
 
-    $ **lxc list**
+$ **lxc list**
 
 ### STEP4
 
-    $ **lxc exec jitsi bash**
+$ **lxc exec jitsi bash**
 
-    \# **apt update && apt upgrade**
+\# **apt update && apt upgrade**
 
 Install Jitsi into the Container you created in STEP3 (I'm showing you Jitsi's like for Ubuntu/Debian) they have instructions for other distro's to.
 
@@ -208,7 +128,7 @@ Start a new conference.
 
 Use the Jitsi provided link provided for your new conference and go to another machine, start Chrome/Chromium
 
-and goto "that Jitsi link"
+and goto "*that Jitsi link* you got earlier"
 
 If I haven't forgotten or mistyped anything you should be good to go.
 
