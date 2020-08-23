@@ -74,7 +74,7 @@ $ **lxc profile edit jitsiprf**
 
 Make it look like below...
 
-https://github.com/bmullan/Guide-to-Install-Jitsi-in-LXD-container/blob/master/routed%20profile.png
+![routed profile example](https://github.com/bmullan/Guide-to-Install-Jitsi-in-LXD-container/blob/master/routed%20profile.png)
 
 Save your changed "**jitsiprf**" profile file.
 
