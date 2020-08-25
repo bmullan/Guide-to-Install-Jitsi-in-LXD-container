@@ -76,7 +76,14 @@ Make it look like below...
 
 ![routed profile example](https://github.com/bmullan/Guide-to-Install-Jitsi-in-LXD-container/blob/master/routed%20profile.png)
 
+**NOTE1:**
+In the above profile change 192.168.1.200 to whatever reserved IP you have made for this use.
+
+**NOTE2:**
+For "parent: enp6s0", change "enp6s0" to whatever is your Host's Internet Interface (eth or wifi)
+
 Save your changed "**jitsiprf**" profile file.
+
 
 ### STEP3
 
